@@ -1,0 +1,16 @@
+{
+  "name": "Chaturang Chess",
+  "short_name": "Chaturang",
+  "description": "Chess Mastery Game",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#381F04",
+  "background_color": "#E4DED7",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

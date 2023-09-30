@@ -1,0 +1,10 @@
+#body{
+    display: grid;
+    place-content:center start;
+    height: 100vh;
+    background-color: #E4DED7;
+}
+#title{
+    font-size:x-large;
+    font-weight: 700;
+}
