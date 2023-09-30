@@ -1,10 +1,10 @@
 import React from 'react';
-import './chessboard.css'
+import './Chessboard.css'
 
 const verticleAxis = [1, 2, 3, 4, 5, 6, 7, 8]; // The verticle axis of the board
 const horizontalAxis = ["A", "B", "C", "D", "E", "F", "G", "H"]; // The horizontal axis of the board
 
-function chessboard() {
+export default function Chessboard() {
     let board = [];
 
     //To populate the board with boxes 
@@ -25,5 +25,3 @@ function chessboard() {
         </div>
     );
 }
-
-export default chessboard;
