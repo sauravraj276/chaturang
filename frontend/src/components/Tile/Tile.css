@@ -1,0 +1,13 @@
+.tile{
+    width: 10vh;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tileBlack{
+    background-color: #4A4135;
+}
+.tileWhite{
+    background-color: #FFD8B4;
+}

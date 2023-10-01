@@ -4,20 +4,10 @@
     width: 80vh;
     height: 80vh;
     background-color: #381F04;
-    margin-left: 20px;
+    margin: 20px;
     display: grid;
     padding:5vh;
     display: flex;
     flex-wrap: wrap;
 }
 
-.box{
-    width: 10vh;
-    height: 10vh;
-}
-.b_black{
-    background-color: #4A4135;
-}
-.b_white{
-    background-color: #FFD8B4;
-}

@@ -1,13 +1,19 @@
 import './App.css';
 import Chessboard from './components/Chessboard/Chessboard';
+import { GameStateProvider } from './context/GameStateContect';
 
 function App() {
   return (
-   <div id="body">
-   <center><p id="title">Chaturang - Chess Mastery</p></center>
-    <Chessboard/>
-   </div>
-  
+
+
+    <GameStateProvider>
+      <div id="body">
+        <center><p id="title">Chaturang - Chess Mastery</p></center>
+        <Chessboard />
+      </div>
+    </GameStateProvider>
+
+
   );
 }
 
