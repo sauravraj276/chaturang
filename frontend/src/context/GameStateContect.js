@@ -4,19 +4,15 @@ import {Chess} from 'chess.js'; // Import chess.js
 const GameStateContext = createContext();
 
 const initialState = {
-  chess: new Chess(), // Initialize chess.js board
+  chess: new Chess(), 
   // ... other game-related state
 };
 
 const gameReducer = (state, action) => {
   switch (action.type) {
-    case 'MAKE_MOVE':
-      // Update chess.js board with the move
-      state.chess.move({ from: action.payload.from, to: action.payload.to });
-      // Implement logic to handle other aspects of the game state
+    case 'UPDATE_GAME_STATE':
       return {
-        ...state,
-        // Update other game-related state
+        ...action.payload, // Assuming payload contains updated game state
       };
     // Handle other actions as needed
     default:

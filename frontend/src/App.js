@@ -1,17 +1,22 @@
 import './App.css';
-import Chessboard from './components/Chessboard/Chessboard';
+import Chessboard from './game/Chessboard/Chessboard';
 import { GameStateProvider } from './context/GameStateContect';
+import Login from './onBoard/Login/Login';
 
 function App() {
   return (
 
 
-    <GameStateProvider>
+    // <GameStateProvider>
+
       <div id="body">
-        <center><p id="title">Chaturang - Chess Mastery</p></center>
-        <Chessboard />
+        <Login/>
+        {/* <center><p id="title">Chaturang - Chess Mastery</p></center> */}
+        {/* <Chessboard />
+
+         */}
       </div>
-    </GameStateProvider>
+    // </GameStateProvider>
 
 
   );

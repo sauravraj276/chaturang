@@ -11,3 +11,9 @@
 .tileWhite{
     background-color: #FFD8B4;
 }
+.clicked{
+    box-shadow: inset 0 0 5px yellow;
+}
+.validMove{
+    box-shadow: inset 0 0 5px green;
+}
