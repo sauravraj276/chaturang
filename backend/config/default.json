@@ -1,0 +1,4 @@
+{
+    "mongoURI":"mongodb+srv://sauravraj276:EoWisf8avQI1cY4X@chaturangmumbai.r3jiha6.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret":"mysecrettoken"
+}
