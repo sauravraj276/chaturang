@@ -1,12 +1,12 @@
 
 
 #board{
-    width: 80vh;
-    height: 80vh;
+    width: min(80vh,80vw);
+    height: min(80vh,80vw);
     background-color: #381F04;
     margin: 20px;
     display: grid;
-    padding:5vh;
+    padding:min(5vh,5vw);
     display: flex;
     flex-wrap: wrap;
     box-shadow: inset 0 0 5px #FFD8B4;

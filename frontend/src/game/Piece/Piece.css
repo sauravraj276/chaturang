@@ -1,4 +1,4 @@
 .piece{
-    height: 7vh;
-    width: 7vh;
+    height: min(7vh,7vw);
+    width: min(7vh,7vw);
 }
