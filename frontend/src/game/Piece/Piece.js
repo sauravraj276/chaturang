@@ -14,27 +14,23 @@ import rw from '../../assets/images/rook_white.svg'
 import rb from '../../assets/images/rook_black.svg'
 
 const pieceImages = {
-    'bw': bw,
-    'bb': bb,
-    'kw': kw,
-    'kb': kb,
-    'nw': nw,
-    'nb': nb,
-    'pw': pw,
-    'pb': pb,
-    'qw': qw,
-    'qb': qb,
-    'rw': rw,
-    'rb': rb,
-  };
-  const handleDragStart = (e, itemId) => {
-    e.dataTransfer.setData('text/plain', itemId);
-  };
- 
+  'bw': bw,
+  'bb': bb,
+  'kw': kw,
+  'kb': kb,
+  'nw': nw,
+  'nb': nb,
+  'pw': pw,
+  'pb': pb,
+  'qw': qw,
+  'qb': qb,
+  'rw': rw,
+  'rb': rb,
+};
 
 export default function Piece(props) {
 
-   return <img
-   id={props.name}
-   className='piece' key={props.name} src={pieceImages[props.name]} alt="Chess Piece" />
+  return <img
+    id={props.name}
+    className='piece' key={props.name} src={pieceImages[props.name]} alt="Chess Piece" />
 }
