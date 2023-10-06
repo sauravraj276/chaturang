@@ -5,13 +5,17 @@ const GameStateContext = createContext();
 
 const initialState = {
   chess: new Chess(), 
+  players:'',
   // ... other game-related state
 };
 
 const gameReducer = (state, action) => {
+  // console.log('Action:', action);
+  // console.log('Current State:', state);
   switch (action.type) {
     case 'UPDATE_GAME_STATE':
       return {
+        ...state,
         ...action.payload, // Assuming payload contains updated game state
       };
     // Handle other actions as needed

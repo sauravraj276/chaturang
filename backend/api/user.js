@@ -6,6 +6,23 @@ const { check, validationResult } = require("express-validator");
 const { v4: uuidv4 } = require('uuid');
 const User = require("../models/user");
 const ApiResponse = require("../utils/ApiResponse");  // Import ApiResponse module
+const auth = require("../middleware/auth")
+
+router.get("", auth, async (req, res) => {
+  try {
+    // The auth middleware adds the user object to the request
+    const user = await User.findOne({id:req.user.id}).select("-password");
+
+    if (!user) {
+      return res.status(404).json(ApiResponse.error("User not found"));
+    }
+
+    res.json(ApiResponse.success({ user }));
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json(ApiResponse.error("Server Error"));
+  }
+});
 
 router.post(
   "/login",

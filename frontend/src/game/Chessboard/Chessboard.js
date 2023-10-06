@@ -2,7 +2,7 @@ import React from 'react';
 import './Chessboard.css'
 import Tile from '../Tile/Tile';
 import Piece from '../Piece/Piece';
-import { useGameState } from '../../context/GameStateContect';
+import { useGameState } from '../../context/GameStateContext';
 import { useState, useEffect } from 'react';
 
 
@@ -19,13 +19,31 @@ export default function Chessboard() {
   let board = [];
   const chess = state.chess;
 
+  const undoSelection = () => {
+    setSelectedTile(null);
+    setValidMoves([]);
+
+  }
+
   const handleTileClick = (x, y) => {
     const selectedPiece = chess.get(x + y);
+    let tileSelected = selectedTile;
+    if (selectedTile && selectedPiece) {
+      // chek whether both are of same color
+
+      if (chess.get(selectedTile.x + selectedTile.y).color === selectedPiece.color) {
+        undoSelection();
+        setSelectedTile(null);
+        setValidMoves([]);
+        tileSelected = null;
+
+      }
+    }
 
     // Todo 
-      // in one turn can select tiles only once 
-      // selection can be changed as many times as possible
-    if (selectedPiece && !selectedTile) {
+    // in one turn can select tiles only once 
+    // selection can be changed as many times as possible
+    if (selectedPiece && !tileSelected) {
       // Check for valid turn using chess.js
       if (selectedPiece.color === chess.turn()) {
         // Update the selected tile
@@ -49,9 +67,16 @@ export default function Chessboard() {
         setSelectedTile(null);
         setValidMoves([]);
         // update the chess state
+        dispatch({
+          type: 'UPDATE_GAME_STATE',
+          payload: {
+            chess: chess,
+          },
+        });
       }
     }
   };
+
 
   //To make the chesspiece map from the boardState 
   const chessPiecesMap = {};
@@ -87,5 +112,8 @@ export default function Chessboard() {
     }
   }
 
-  return <div id="board" >{board}</div>
+  return <div>
+    <button onClick={undoSelection}>Undo Selection</button>
+    <div id="board" >{board}</div>
+  </div>
 }

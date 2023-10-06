@@ -1,17 +1,24 @@
 // Login.js
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import "./Form.css";
-import  userApi  from '../../connection/api/axiosInstance'; // Adjust the path based on your project structure
+import userApi from '../../connection/api/axiosInstance'; // Adjust the path based on your project structure
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 export default function Login() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+  const { user } = useAuth();
+  const [validationErrorMessages, setValidationErrorMessages] = useState()
+  const navigate=useNavigate();
 
-  const [validationErrorMessages,setValidationErrorMessages]=useState()
-
+  useEffect(() => {
+    if (user) {
+      navigate('/dashboard')
+    }
+  })
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,12 +29,12 @@ export default function Login() {
     e.preventDefault();
     //Reset error message 
     setValidationErrorMessages('');
-  
+
     try {
       const response = await userApi.post('/login', formData);
       if (response.data.data.token) {
         localStorage.setItem('token', response.data.data.token);
-        
+        navigate('/dashboard')
       } else {
         setValidationErrorMessages('Server Error');
       }
@@ -37,7 +44,7 @@ export default function Login() {
       setValidationErrorMessages('Wrong Credentials');
     }
   };
-  
+
 
   return (
     <div className='form'>
@@ -68,7 +75,7 @@ export default function Login() {
         <br />
         <button type="submit">Login</button>
       </form>
-      
+
       <p style={{ color: '#fc475f' }}>{validationErrorMessages}</p>
     </div>
   );
