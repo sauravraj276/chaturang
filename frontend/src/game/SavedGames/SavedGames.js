@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useGameState } from '../../context/GameStateContext';
 import { useNavigate } from 'react-router-dom';
+import './SavedGames.css'
 
 const SavedGames = () => {
   const [games, setGames] = useState([]);
@@ -37,7 +38,7 @@ const SavedGames = () => {
   };
 
   return (
-    <div className='form'>
+    <div className='form savedGames'>
       <h2>Saved Games</h2>
       {games.length === 0 ? (
         <p>No saved games.</p>
@@ -45,8 +46,10 @@ const SavedGames = () => {
         <ol>
           {games.map((game, index) => (
             <li key={index}>
-              <span>{game.fen}</span>
-              <span>{game.timestamp}</span>
+              <span>{game.fen.slice(0,10)}</span>
+              <br/>
+              <span>{Date(game.timestamp).toLocaleString()}</span>
+              <br/>
               <button onClick={() => loadGame(index)}>Continue</button>
               <button onClick={() => deleteGame(index)}>Delete</button>
             </li>
