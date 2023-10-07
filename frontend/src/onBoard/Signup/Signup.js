@@ -75,7 +75,7 @@ export default function Signup() {
                     Email:
                     <input
                         required
-                        type="text"
+                        type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
