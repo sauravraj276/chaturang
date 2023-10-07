@@ -1,8 +1,9 @@
 // Signup.js
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import "../Login/Form.css";
 import userApi from '../../connection/api/axiosInstance'; // Adjust the path based on your project structure
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext'
 
 export default function Signup() {
     const [formData, setFormData] = useState({
@@ -13,6 +14,16 @@ export default function Signup() {
     const [confirmPassword, setconfirmPassword] = useState('');
 
     const [validationErrorMessages, setValidationErrorMessages] = useState('');
+    const navigate = useNavigate();
+
+    const { user } = useAuth();
+
+
+    useEffect(() => {
+        if (user) {
+            navigate('/dashboard')
+        }
+    })
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -33,6 +44,7 @@ export default function Signup() {
                 if (response.data.data.token) {
                     localStorage.setItem('token', response.data.data.token);
                     // Redirect to the profile page or do other necessary actions
+                    navigate('/dashboard')
                 } else {
                     setValidationErrorMessages('Server Error');
                 }
@@ -77,7 +89,7 @@ export default function Signup() {
                         type="password"
                         name="password"
                         minLength="8"
-                        maxLength="15" 
+                        maxLength="15"
                         value={formData.password}
                         onChange={handleChange}
                     />
@@ -91,7 +103,7 @@ export default function Signup() {
                         name="confirmPassword"
                         value={confirmPassword}
                         minLength="8"
-                        maxLength="15" 
+                        maxLength="15"
                         onChange={e => setconfirmPassword(e.target.value)}
                     />
                 </label>
