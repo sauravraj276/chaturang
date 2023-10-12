@@ -73,8 +73,8 @@ const GamePanel = () => {
             <div className='panel-pallet ' id="player1" ><p >Player 1 : <span className='player-name'>Saurav Raj</span></p> </div>
             <div className='panel-pallet ' id="player2" ><p >Player 2 :  <span className='player-name'>Divyanshu</span></p> </div>
             <div className='panel-pallet' id="info"><p>checkmate</p> </div>
-            <div className='btn-pallet'> <button id="reset" onClick={undo}>Reset Game</button>
-                <button id="save" onClick={resetGame}>Save Game</button></div>
+            <div className='btn-pallet'> <button id="reset" onClick={resetGame}>Reset Game</button>
+                <button id="save" onClick={saveGame}>Save Game</button></div>
             <div>
 
             </div>
