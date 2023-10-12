@@ -9,8 +9,8 @@ const Game = () => {
     return (
         <GameStateProvider>
             <div className="game-container">
-                <GamePanel />
                 <Chessboard />
+                <GamePanel />
             </div>
         </GameStateProvider>
     );

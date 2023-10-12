@@ -1,4 +1,61 @@
 .game-panel{
-    background-color: antiquewhite;
-    height :fit-content
+    width: 60vh;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+    font-size:x-large;
+    font-weight: 600;
+}
+
+.panel-pallet{
+    background-color:#4A4135;
+    padding-left: 20px;
+}
+#turn{
+    color: white;
+    border-radius: 10px;
+}
+#player1{
+    color: #FFD8B4;
+    border-bottom: 1px solid #FFD8B4;
+    border-radius: 10px 10px 0px 0px;
+    margin-top: 10px;
+}
+#player2{
+    color: #FFD8B4;
+    border-top: 1px solid #FFD8B4;
+    border-radius: 0px 0px 10px 10px;
+    margin-bottom: 10px;
+}
+#info{
+    color:red;
+    border-radius: 10px;
+}
+.player-name{
+    font-weight: 400;
+}
+.btn-pallet{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 80px;
+}
+
+.btn-pallet button{
+    padding: 10px;
+    font-size:x-large;
+}
+
+#reset{
+    background-color:#4A4135;
+    color: white;
+    
+}
+
+#save{
+    background-color:#FFD8B4;
+    color: #4A4135;
+
 }

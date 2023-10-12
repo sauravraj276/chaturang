@@ -19,11 +19,7 @@ export default function Chessboard() {
   let board = [];
   const chess = state.chess;
 
-  const undoSelection = () => {
-    setSelectedTile(null);
-    setValidMoves([]);
 
-  }
 
   const handleTileClick = (x, y) => {
     const selectedPiece = chess.get(x + y);
@@ -32,7 +28,6 @@ export default function Chessboard() {
       // chek whether both are of same color
 
       if (chess.get(selectedTile.x + selectedTile.y).color === selectedPiece.color) {
-        undoSelection();
         setSelectedTile(null);
         setValidMoves([]);
         tileSelected = null;
@@ -113,7 +108,6 @@ export default function Chessboard() {
   }
 
   return <div>
-    <button onClick={undoSelection}>Undo Selection</button>
     <div id="board" >{board}</div>
   </div>
 }
